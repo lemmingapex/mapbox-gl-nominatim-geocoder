@@ -2,26 +2,44 @@
 var mapboxgl = require('mapbox-gl');
 var insertCss = require('insert-css');
 var fs = require('fs');
-mapboxgl.accessToken = window.localStorage.getItem('MapboxAccessToken');
+var $ = require("jquery");
 
-insertCss(fs.readFileSync('./lib/mapbox-gl-geocoder.css', 'utf8'));
+insertCss(fs.readFileSync('./lib/mapbox-gl-nominatim-geocoder.css', 'utf8'));
 insertCss(fs.readFileSync('./node_modules/mapbox-gl/dist/mapbox-gl.css', 'utf8'));
 
-var MapboxGeocoder = require('../');
+var MapboxNominatimGeocoder = require('../');
+
 
 var mapDiv = document.body.appendChild(document.createElement('div'));
 mapDiv.style = 'position:absolute;top:0;right:0;left:0;bottom:0;';
 
+let osmStyle = {
+			"version": 8,
+			"sources": {
+				"osm-tiles": {
+					"type": "raster",
+					"attribution": "© OpenStreetMap",
+					"tiles": ["http://a.tile.openstreetmap.org/{z}/{x}/{y}.png"],
+					"tileSize": 256
+				}
+			},
+			"layers": [{
+				"id": "base-tiles",
+				"type": "raster",
+				"source": "osm-tiles",
+				"minzoom": 0,
+				"maxzoom": 18
+			}]
+		};
+
 var map = new mapboxgl.Map({
   container: mapDiv,
-  style: 'mapbox://styles/mapbox/streets-v9',
+  style: osmStyle,
   center: [-79.4512, 43.6568],
   zoom: 13
 });
 
-var geocoder = new MapboxGeocoder({
-  accessToken: window.localStorage.getItem('MapboxAccessToken')
-});
+var geocoder = new MapboxNominatimGeocoder({});
 
 window.geocoder = geocoder;
 

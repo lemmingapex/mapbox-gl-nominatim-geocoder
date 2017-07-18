@@ -1,11 +1,11 @@
 {
-  "name": "@mapbox/mapbox-gl-geocoder",
+  "name": "mapbox-gl-nominatim-geocoder",
   "version": "2.1.0",
-  "description": "A geocoder control for Mapbox GL JS",
+  "description": "A geocoder control for Mapbox GL JS that uses the nominatim geocoding api",
   "main": "lib/index.js",
   "scripts": {
     "start": "budo example/index.js --live -- -t brfs ",
-    "prepublish": "NODE_ENV=production && mkdir -p dist && browserify --standalone MapboxGeocoder lib/index.js | uglifyjs -c -m > dist/mapbox-gl-geocoder.min.js && cp lib/mapbox-gl-geocoder.css dist/",
+    "prepublish": "NODE_ENV=production && mkdir -p dist && browserify --standalone MapboxNominatimGeocoder lib/index.js | uglifyjs -c -m > dist/mapbox-gl-geocoder.min.js && cp lib/mapbox-gl-geocoder.css dist/",
     "test": "npm run lint && browserify -t envify test/index.js | smokestack -b firefox | tap-status",
     "docs": "documentation build lib/index.js --format=md > API.md",
     "lint": "eslint lib"
@@ -14,10 +14,6 @@
     "lib",
     "dist"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/mapbox/mapbox-gl-geocoder.git"
-  },
   "keywords": [
     "geocoder",
     "osm",
@@ -25,10 +21,6 @@
   ],
   "author": "Mapbox",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/mapbox/mapbox-gl-geocoder/issues"
-  },
-  "homepage": "https://github.com/mapbox/mapbox-gl-geocoder#readme",
   "devDependencies": {
     "brfs": "1.4.3",
     "browserify": "^13.0.1",
@@ -45,6 +37,7 @@
     "uglify-js": "^2.6.4"
   },
   "dependencies": {
+    "jquery": "^3.2.1",
     "lodash.debounce": "^4.0.6",
     "mapbox": "1.0.0-beta5",
     "suggestions": "^1.3.1",
