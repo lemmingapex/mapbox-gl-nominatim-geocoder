@@ -1,4 +1,4 @@
-Mapbox GL Geocoder [![CircleCI](https://circleci.com/gh/mapbox/mapbox-gl-geocoder.svg?style=svg)](https://circleci.com/gh/mapbox/mapbox-gl-geocoder)
+Mapbox GL Geocoder
 ---
 
 A geocoder control for [mapbox-gl-js](https://github.com/mapbox/mapbox-gl-js) using the [Nominatim Geocoding API](http://wiki.openstreetmap.org/wiki/Nominatim).
