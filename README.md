@@ -1,5 +1,4 @@
-Mapbox GL Geocoder
----
+# Mapbox GL Nominatim Geocoder
 
 A geocoder control for [mapbox-gl-js](https://github.com/mapbox/mapbox-gl-js) using the [Nominatim Geocoding API](http://wiki.openstreetmap.org/wiki/Nominatim).
 Based on [Mapbox GL Geocoder](https://github.com/mapbox/mapbox-gl-geocoder/)
