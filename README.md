@@ -3,6 +3,8 @@
 A geocoder control for [mapbox-gl-js](https://github.com/mapbox/mapbox-gl-js) using the [Nominatim Geocoding API](http://wiki.openstreetmap.org/wiki/Nominatim).
 Based on [Mapbox GL Geocoder](https://github.com/mapbox/mapbox-gl-geocoder/)
 
+This tool has been superseded by the [mapbox-gl-generic-geocoder](https://github.com/lemmingapex/mapbox-gl-generic-geocoder).  Please use that tool instead.
+
 ### Usage
 
 See example/index.js
